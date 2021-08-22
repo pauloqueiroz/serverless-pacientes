@@ -28,9 +28,15 @@ module.exports.listarPacientes = async (event) => {
 module.exports.obterPacientes = async (event) => {
   const { pacienteId } = event.pathParameters;
   const paciente = pacientes.find((paciente) => paciente.id == pacienteId);
+  if(!paciente){
+    return {
+      statusCode: 404,
+      body: JSON.stringify({error: "Paciente não encontrado"}, null,2)
+    };
+  }
   return {
     statusCode: 200,
-    body: JSON.stringify(paciente, null, 2),
+    body: JSON.stringify(paciente, null, 2)
   };
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
