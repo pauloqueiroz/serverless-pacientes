@@ -57,6 +57,9 @@ provider:
 #    - include-me.js
 #    - include-me-dir/**
 
+plugins:
+  - serverless-offline
+
 functions:
   listarPacientes:
     handler: handler.listarPacientes
@@ -64,6 +67,15 @@ functions:
       - http:
           path: pacientes
           method: get
+
+  obterPacientes:
+    handler: handler.obterPacientes
+    events:
+      - http:
+          path: pacientes/{pacienteId}
+          method: get 
+
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
