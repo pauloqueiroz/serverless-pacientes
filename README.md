@@ -1,6 +1,6 @@
 # serverless-pacientes
 
-Projeto de um Crud de pacientes utilizando Serverless framework para deploy na Aws em lambda function e utilizando DynamoDB para armazenamento de dados. 
+Projeto de um CRUD de pacientes utilizando Serverless framework para deploy na Aws em lambda function e utilizando DynamoDB para armazenamento de dados. 
 Possui os seguintes endpoints:
 - Listar pacientes;
 - Cadastrar pacientes;
