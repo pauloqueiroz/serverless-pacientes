@@ -60,6 +60,16 @@ provider:
 plugins:
   - serverless-offline
 
+iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - dynamodb:Query
+      - dynamodb:Scan
+      - dynamodb:PutItem
+      - dynamodb:DeleteItem
+      - dynamodb:GetItem
+    Resource: arn:aws:dynamodb:us-east-1:237387733543:table/PACIENTES  
+
 functions:
   listarPacientes:
     handler: handler.listarPacientes
@@ -68,12 +78,20 @@ functions:
           path: pacientes
           method: get
 
-  obterPacientes:
-    handler: handler.obterPacientes
+  obterPaciente:
+    handler: handler.obterPaciente
     events:
       - http:
           path: pacientes/{pacienteId}
           method: get 
+
+  cadastrarPaciente:
+    handler: handler.cadastrarPaciente
+    events:
+      - http:
+          path: pacientes
+          method: post          
+
 
 
 #    The following are a few example events you can configure
