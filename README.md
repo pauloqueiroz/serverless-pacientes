@@ -5,4 +5,4 @@ Possui os seguintes endpoints:
 - Listar pacientes;
 - Cadastrar pacientes;
 - Recuperar paciente;
-- Remover paciente - TODO.
+- Remover paciente.
